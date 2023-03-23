@@ -16,10 +16,14 @@ app.use(
 );
 
 app.use(bodyParser.json());
-
+app.set('view engine', 'ejs');
 app.get("/user", (req, res) => {
   res.json({ name: "prince", age: 21 });
 });
+
+
+
+
 
 
 
@@ -33,6 +37,12 @@ app.post("/signup", async (req, res) => {
     res.status(200).send("user created successfully");
   }
 });
+
+
+app.get('/',(req,res)=>{
+  res.status(200).render('pages/basic');
+})
+
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
