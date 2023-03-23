@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 const cors = require("cors");
 const userRead = require("./CRUD/Read");
-const port = 8080;
+const port = process.env.PORT||8080;
 const app = exp();
 
 app.use(
@@ -64,4 +64,6 @@ app.post("/login", async (req, res) => {
 
 
 
-app.listen(port);
+app.listen(port,()=>{
+  console.log('connection made successfully on port '+port)
+});
